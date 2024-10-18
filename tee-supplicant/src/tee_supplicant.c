@@ -51,6 +51,7 @@
 #include <teec_ta_load.h>
 #include <teec_trace.h>
 #include <tee_socket.h>
+#include <tee_syscall.h>
 #include <tee_supp_fs.h>
 #include <tee_supplicant.h>
 #include <unistd.h>
@@ -669,6 +670,9 @@ static bool process_one_request(struct thread_arg *arg)
 	case OPTEE_MSG_RPC_CMD_PLUGIN:
 		ret = plugin_process(num_params, params);
 		break;
+    case OPTEE_MSG_RPC_CMD_SYSCALL:
+        ret = tee_syscall_process(num_params, params);
+        break;
 	default:
 		EMSG("Cmd [0x%" PRIx32 "] not supported", func);
 		/* Not supported. */

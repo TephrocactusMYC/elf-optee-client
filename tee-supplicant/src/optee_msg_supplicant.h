@@ -189,6 +189,11 @@
 #define OPTEE_MSG_RPC_CMD_PLUGIN	12
 
 /*
+ * REE syscall commands
+ */
+#define OPTEE_MSG_RPC_CMD_SYSCALL	13
+
+/*
  * Define protocol for messages with .cmd == OPTEE_MSG_RPC_CMD_SOCKET
  */
 
